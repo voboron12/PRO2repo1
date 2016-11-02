@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 public class Player {
@@ -55,7 +56,16 @@ public class Player {
 	}
 	
 	public void paint(Graphics g){
-		
+		g.drawImage(img, x, y, null);
 	}
+	
+	public int getPlayerHeight(){
+		return img.getHeight();
+	}
+	
+	public Rectangle getRange(){
+		return new Rectangle(x, y, img.getWidth(), img.getHeight());
+	}
+	
 
 }
