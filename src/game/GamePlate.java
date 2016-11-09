@@ -10,6 +10,10 @@ import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import image.Image;
+import image.ImageSource;
+import image.ImageSourceFile;
+
 public class GamePlate extends JPanel {
 	public static final int WIDTH = 600, HEIGHT = 800;
 
@@ -28,7 +32,16 @@ public class GamePlate extends JPanel {
 	private int BackgroundMoveX = 0;
 
 	public GamePlate() {
-
+		ImageSourceFile s = new ImageSourceFile();
+		s.fillMap();
+		s.setSource(Image.BACKGROUND.getKey());
+		
+		try {
+			img = s.getImage();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void paint(Graphics g) {
